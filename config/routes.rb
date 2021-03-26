@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get  'new' => 'announcements#new'
+  get 'unviewed' => 'announcements#unviewed'
+  get 'my_posts' => 'announcements#my_posts'
   get 'sessions/new'
   root 'static_pages#home'
   get 'signup'  => 'users#new'
@@ -8,5 +11,6 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
 
   resources :users
+  resources :announcements
 
 end
