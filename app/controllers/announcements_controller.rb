@@ -4,10 +4,12 @@ class AnnouncementsController < ApplicationController
   end
 
   def unviewed
+    @announcements = Announcement.all
   end
+  
 
   def my_posts
-
+    @announcements = Announcement.all
   end
 
   def create
@@ -18,6 +20,12 @@ class AnnouncementsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+   def destroy
+    Announcement.find(params[:id]).destroy
+    flash[:success] = "Announcement deleted"
+    redirect_to my_posts_path
   end
 
   private

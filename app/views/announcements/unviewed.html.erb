@@ -1,2 +1,15 @@
-<h1>Announcements#unviewed</h1>
-<p>Find me in app/views/announcements/unviewed.html.erb</p>
+<% provide(:title, "Unviewed posts") %>
+<h1>Unviewed posts</h1>
+
+<% @announcements.each do |announcement| %>
+  <div class="center jumbotron">
+    <ul>
+      <h2><%= announcement.user_id %>
+      </h2>
+      <h3><%= announcement.content %></h3>
+      <h5><%= announcement.updated_at %></h5>
+    </ul>
+  </div>
+<% end %>
+
+
