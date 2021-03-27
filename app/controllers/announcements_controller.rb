@@ -1,6 +1,7 @@
 class AnnouncementsController < ApplicationController
   def new
     @announcement = Announcement.new
+    @user = params[:user_id]
   end
 
   def unviewed
@@ -9,16 +10,18 @@ class AnnouncementsController < ApplicationController
   
 
   def my_posts
-    @announcements = Announcement.all
+    @user = params[:user_id]
+    @announcements = Announcement.where("user_id = ?", @user)
   end
 
   def create
+ 
     @announcement = Announcement.new(announcement_params)
     if @announcement.save
       flash[:success] = "Your new announcement is post!"
-      redirect_to my_posts_path
+      redirect_to my_posts_path(:user_id => current_user)
     else
-      render 'new'
+      render 'new', :user_id => params[:user_id]
     end
   end
 

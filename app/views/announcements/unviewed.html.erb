@@ -4,10 +4,10 @@
 <% @announcements.each do |announcement| %>
   <div class="center jumbotron">
     <ul>
-      <h2><%= announcement.user_id %>
+      <h2><%= "User number: " %><%= announcement.user_id %>
       </h2>
       <h3><%= announcement.content %></h3>
-      <h5><%= announcement.updated_at %></h5>
+      <h5><%= announcement.created_at %></h5>
     </ul>
   </div>
 <% end %>

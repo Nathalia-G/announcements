@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+    has_many :announcements
     attr_accessor :remember_token
     before_save { self.email = email.downcase }
     validates :name,  presence: true, length: { maximum: 50 }
@@ -15,8 +16,6 @@ class User < ApplicationRecord
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
     end
-
-    has_many :announcements
 
     # Returns a random token.
     def User.new_token
