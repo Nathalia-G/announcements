@@ -1,13 +1,13 @@
 <% provide(:title, "My posts") %>
 <h1>My posts</h1>
 
-
+<h3><%= params[:user_name]%></h3>
 <% @announcements.each do |announcement| %>
   <div class="center jumbotron">
     <ul>
-    <h3><%= announcement.user_id %></h3>
       <h3><%= announcement.content %></h3>
       <h5><%= announcement.created_at %></h5>
+      <h5><%= announcement.date %></h5>
       <h2> <%= link_to "Delete", announcement, method: :delete, data: { confirm: "Are you sure?" } %></h2>
     </ul>
   </div>
