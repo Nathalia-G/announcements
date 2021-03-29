@@ -1,12 +1,9 @@
 namespace :vencimiento do
   desc "TODO"
   task borrar_vencidos: :environment do
-  @consulta=Announcement.where("date <= ?", DateTime.now.strftime)
-  
-  puts "_________________________________"
-  puts @consulta
-  puts "_________________________________"
-
+    @vencidos=Announcement.select("id").where("date <= ?", DateTime.now.strftime)
+    @vencidos.each do |anuncio|
+      anuncio.destroy
+    end
   end
-
 end

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   get  'new' => 'announcements#new'
   get 'unviewed' => 'announcements#unviewed'
+  post 'unviewed' => 'announcements#announcement_view'
   get 'my_posts' => 'announcements#my_posts'
   get 'sessions/new'
   root 'static_pages#home'

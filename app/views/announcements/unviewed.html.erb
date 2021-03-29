@@ -4,10 +4,17 @@
 <% @announcements.each do |announcement| %>
   <div class="center jumbotron">
     <ul>
-      <h2><%= "User number: " %><%= announcement.user_id %>
+      <h2><%= "Written by: " %><%= announcement.user.name%>
       </h2>
       <h3><%= announcement.content %></h3>
       <h5><%= announcement.created_at %></h5>
+      <%= form_for(:seen, url: unviewed_path) do |f| %>
+      <%= f.label :announcement_view, class: "checkbox inline" do %>
+        <%= f.check_box :announcement_view, :onclick => "this.form.submit()"%>
+        <span>Mark as seen</span>
+        <% end %>
+
+      <% end %>
     </ul>
   </div>
 <% end %>

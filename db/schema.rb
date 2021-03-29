@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_27_044342) do
+ActiveRecord::Schema.define(version: 2021_03_29_002623) do
 
   create_table "announcements", force: :cascade do |t|
     t.text "content"
@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(version: 2021_03_27_044342) do
     t.string "lastname"
     t.string "remember_digest"
     t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
+  create_table "views", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "announcement_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end

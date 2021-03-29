@@ -5,9 +5,13 @@ class AnnouncementsController < ApplicationController
   end
 
   def unviewed
-    @announcements = Announcement.all
+    @announcements = Announcement.includes(:user)
   end
   
+  def announcement_view
+
+            puts "********************************"
+  end
 
   def my_posts
     @user = params[:user_id_i]
@@ -35,6 +39,7 @@ class AnnouncementsController < ApplicationController
     flash[:success] = "Announcement deleted"
     redirect_to my_posts_path
   end
+
 
   private
 

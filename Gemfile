@@ -29,7 +29,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'bcrypt'
-
+gem 'whenever', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

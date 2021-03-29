@@ -7,7 +7,6 @@
         <div class="col-md-6 col-md-offset-3">
             <%= form_for(@announcement) do |f| %>
             <%= f.hidden_field :user_id, value: @user%>
- 
             <%= f.label :content, "Write your post:" %>
             <%= f.text_field :content, class: "form-control" %>
             <%= f.submit "Create", class: "btn btn-lg btn-primary" %>
