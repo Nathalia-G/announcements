@@ -8,8 +8,11 @@
       </h2>
       <h3><%= announcement.content %></h3>
       <h5><%= announcement.created_at %></h5>
+      
       <%= form_for(:seen, url: unviewed_path) do |f| %>
       <%= f.label :announcement_view, class: "checkbox inline" do %>
+      <%= f.hidden_field :user_id, value: @user%>
+      <%= f.hidden_field :announcement_id, value: announcement.id%>
         <%= f.check_box :announcement_view, :onclick => "this.form.submit()"%>
         <span>Mark as seen</span>
         <% end %>

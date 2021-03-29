@@ -6,8 +6,6 @@ class Announcement < ApplicationRecord
 
       attr_accessor :remember_view
 
-      def announcement_view
-            puts "********************************"
-      end
+ 
 
 end
