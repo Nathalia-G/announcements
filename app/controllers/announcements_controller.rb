@@ -46,7 +46,7 @@ class AnnouncementsController < ApplicationController
    def destroy
     Announcement.find(params[:id]).destroy
     flash[:success] = "Announcement deleted"
-    redirect_to my_posts_path
+    redirect_to my_posts_path(:user_id_i => current_user)
   end
 
 

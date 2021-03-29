@@ -5,10 +5,8 @@
 <% @announcements.each do |announcement| %>
   <div class="center jumbotron">
     <ul>
-    <h3><%= announcement.id %></h3>
       <h3><%= announcement.content %></h3>
-      <h5><%= announcement.created_at %></h5>
-      <h5><%= announcement.date %></h5>
+      <h5><b>Created at:</b> <%= announcement.created_at.strftime("%A , %d %B %Y at %H:%M") %></h5>
       <h2> <%= link_to "Delete", announcement, method: :delete, data: { confirm: "Are you sure?" } %></h2>
     </ul>
   </div>

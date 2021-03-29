@@ -7,7 +7,7 @@
       <h2><%= "Written by: " %><%= announcement.user.name%>
       </h2>
       <h3><%= announcement.content %></h3>
-      <h5><%= announcement.created_at %></h5>
+      <h5><b>Created at:</b> <%= announcement.created_at.strftime("%A , %d %B %Y at %H:%M") %></h5>
       
       <%= form_for(:seen, url: unviewed_path) do |f| %>
       <%= f.label :announcement_view, class: "checkbox inline" do %>
